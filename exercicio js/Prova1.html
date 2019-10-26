@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Página modelo</title>
+   <style> 
+   body{
+      background: darkslategray;
+   }
+   div{
+      display: inline-block
+   }
+   label{
+      display: block;
+   }
+   #janela{
+      width: 600px;
+      height: 300px;
+      background-color: aliceblue;
+      text-align: center;
+      position:absolute;
+      top: 30%;
+      left: 28%;
+      margin-top: -25px;
+   }
+   #resultado{
+      display: block;
+   }
+   </style>
+</head>
+
+<body>
+   <div id="janela">
+   <h1>Equação do segundo grau</h1>
+   <p></p>
+   <div>
+      <label> Valor de A </label>
+      <input id='a' type="number">
+   </div>
+   <div>
+      <label> Valor de B </label>
+      <input id='b' type="number">
+   </div>
+   <div>
+      <label> Valor de C </label>
+      <input id='c' type="number">
+   </div>
+   <div>
+      <button id="calcular">Calcular Equação</button>
+   </div>
+   <div id="resultado"></div>
+
+<script>
+   'use strict'; // Modo "chato" do Javascript
+   let elem_a = document.querySelector('#a');
+   let elem_b = document.querySelector('#b');
+   let elem_c = document.querySelector('#c');
+   let elem_calcular = document.querySelector('#calcular');
+   let elem_resultado = document.querySelector('#resultado');
+   
+
+  function equaçãoGrau2(){
+     let a = Number(elem_a.value);
+     let b = Number(elem_b.value);
+     let c = Number(elem_c.value);
+     let delta, raiz, raiz1, raiz2;
+
+   delta = (b ** 2 - (4 * a * c));
+   (delta);
+   
+  if (delta < 0) {      
+      elem_resultado.innerText = `Não é possivel encontrar nenhuma raiz para a equação'`;
+
+   } else if (delta == 0) {
+      raiz = (-b) / (2 * a);
+      elem_resultado.innerHTML = ` Delta é ${delta} </br> A raiz da equação é ${raiz}`;
+
+   } else {
+      raiz1 = (-b + (Math.sqrt(delta))) / (2 * a);
+      raiz2 = (-b - (Math.sqrt(delta))) / (2 * a);
+
+      elem_resultado.innerHTML = `Delta é ${delta} </br> A 1º raiz  da equação é ${raiz1} </br>  A 2º raiz da equação é ${raiz2}`;
+   }
+}
+elem_calcular.addEventListener('click', equaçãoGrau2);
+
+</script>
+</div>
+</body>
+</html>

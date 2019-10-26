@@ -1,0 +1,28 @@
+
+   body{
+      color:rgb(23, 230, 230);
+      background-color: black;
+   }
+   h1{
+      font-size: 40pt;
+   }
+   #n1{
+      font-size: 20px;
+      color:blue;
+   }
+   #n2{
+      font-size: 20px;
+      color:blue;
+   }
+   #operador{
+      font-size: 20px;
+      color:blue;
+   }
+   #calcular{
+      font-size: 20px;
+      color:blue;
+   }
+   #resultado{
+      font-size: 20px;
+      color:rgb(249, 249, 252);
+   }

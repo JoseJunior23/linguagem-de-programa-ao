@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Página modelo</title>
+   <script>
+      'use strict'; // Modo "chato" do Javascript
+
+      // Declarando mais de uma variável com o mesmo let
+      let num1, num2, somar, resultado;
+
+      // Capturar o primeiro número
+      num1 = Number(prompt('Informe o primeiro número'));
+
+      // Capturar o segundo número
+      num2 = Number(prompt('Informe o segundo número'));
+
+      // Pergunta se é para somar (OK) ou para subtrair (Cancelar)
+      somar = confirm('Deseja somar os números? (Cancelar subtrai)');
+
+      if(somar) { // somar é true
+         resultado = num1 + num2;
+      }
+      else { // somar é false
+         resultado = num1 - num2;
+      }
+
+      // Vai escrever no body do documento
+      document.write('O resultado é ' + resultado);
+   
+   </script>
+</head>
+<body>
+   <h1>Título da página</h1>
+   <p>Parágrafo de texto</p>  
+</body>
+</html>

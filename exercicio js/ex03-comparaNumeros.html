@@ -1,0 +1,56 @@
+!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Página modelo</title>
+   <script>
+      'use strict'; // Modo "chato" do Javascript
+      /*
+            Peça ao usuário para informar dois números, os quais devem
+            ser diferentes entre si. Emita uma mensagem de erro caso
+            os dois números sejam iguais.
+            Utilize o operador ternário para determinar qual dos
+            dois números é maior e informe ao usuário.
+            Em seguida, peça ao usuário para informar sua nota na prova
+            (0 a 10). Utilizando o operador ternário, determine se ele foi
+            aprovado (nota igual ou superior a 6) ou reprovado. Informe o
+            resultado ao usuário.
+            
+         */
+      let num1 = Number(prompt('Digite o Primeiro numero:'));
+      let num2 = Number(prompt('Digite o Segundo numero(diferente do primeiro):'));
+      let maior;
+      if(num1 == num2){
+         window.alert(`NUMEROS INFORNADOS NÃO PODEM SER IGUAIS !!!`)
+      }
+      else{
+         //se numero 1 maior que numero 2 retorna num1 senao retaror num 2
+         maior = (num1 > num2)? num1: num2
+      }
+      alert(`O maior numero  digitado Foi ${maior}`)
+
+      // comdição 2 
+   
+      let nota = Number(prompt('Entre com a nota da prova(0 a 10): '));
+
+      let resultado;
+      
+      if(isNaN(nota)){
+         alert('O valor informado NÂO é um numero valido ');
+      }
+      else if (nota < 0|| nota> 10){
+         alert(' NOTA INVALIDA !!!! DIGITE UMA NOTA VALIDA:')
+      }
+      else{
+         resultado = (nota >= 6)? alert('O aluno foi Aprovado'): alert('O aluno foi Reprovado');
+      }
+
+   </script>
+</head>
+<body>
+   <h1>Título da página</h1>
+   <p>Parágrafo de texto</p>  
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Página modelo</title>
+   <style>
+      /* Só se aplica a tributos que não tem o tributo FOR*/
+      label:not([for]) {
+         display: block;
+      }
+
+      /* Só se aplica as divs que não tem "id"*/
+       div:not([id]) {
+         border: 1px solid red;
+         display: inline-block;
+      }
+
+      input[type="radio"] {
+         margin-right: -2px;
+      }
+   </style>
+
+</head>
+
+<body>
+   <h1>Gerador de Loop FOR</h1>
+   <p>Informe os parametros e clique no botão gerar</p>
+
+   <div>
+      <label>Inicio</label>
+      <input id="inicio" type="number">
+   </div>
+
+   <div>
+      <label>Fim</label>
+      <input id="fim" type="number">
+   </div>
+
+   <div>
+      <label>Passo</label>
+      <input id="passo" type="number">
+   </div>
+
+   <div>
+      <!--todos os input radio de um mesmo grupo de opções precisam ter o mesmo atributo "name"-->
+      <input id="asc" type="radio" name="ordem" checked>
+      <label for="asc">Ascendente</label>
+      <input id="desc" type="radio" name="ordem">
+      <label for="desc">Descendente</label>
+   </div>
+
+   <div>
+      <button id="gerar">Gerar</button>
+   </div>
+
+   <div id="resultado"></div>
+
+   <script>
+      'use strict'; // Modo "chato" do Javascript
+      const elem_inicio = document.getElementById('inicio');
+      const elem_fim = document.getElementById('fim');
+      const elem_passo = document.getElementById('passo');
+
+      const elem_asc = document.querySelector('#asc');
+      const elem_desc = document.querySelector('#desc');
+
+      const elem_gerar = document.querySelector('#gerar');
+      const elem_resultado = document.querySelector('#resultado');
+
+      function gerar() {
+         // captura dos valores dos elementos
+         let inicio = parseInt(elem_inicio.value);
+         let fim = parseInt(elem_fim.value);
+         let passo = parseInt(elem_passo.value)
+
+         let asc = elem_asc.checked;
+
+         // Validações
+         if (isNaN(inicio)) {
+            alert('O inicio não é um numero valido!');
+            elem_inicio.focus();
+            return;
+         }
+         if (isNaN(fim)) {
+            alert('O fim não é um numero válido!');
+            elem_fim.focus();
+            return;
+         }
+         if (passo <= 0 || isNaN(passo)) {
+            alert('Passo invalido!');
+            elem_passo.focus();
+            return;
+         }
+         if (asc && inicio > fim) {
+            alert('O inicio não pode ser maior que  o fim!');
+            elem_inicio.focus();
+            return;
+         }
+         if ((!asc) && inicio < fim) {
+            alert('O inicio não pode ser menor que o fim!');
+            elem_inicio.focus();
+
+         }
+
+
+         elem_resultado.innerText = '';
+
+          let parag; 
+
+         if (!asc) { //inverter o sinal do passo 
+            for (let i = inicio; i <= fim; i += passo) {
+               elem_resultado.innerText += `<p>${i}</p>`;
+               // cria um novo elemento- Sempre no document
+               parag = document.createElement('p');
+               parag.innerText = i;
+               elem_resultado.appendChild(parag);
+            }
+         } else {// Se descendente
+            for (let i = inicio; i >= fim; i -= passo) {
+               elem_resultado.innerHTML += `<p>${i}</p>`;
+            }
+         }
+      }
+
+      elem_gerar.addEventListener('click', gerar);
+   </script>
+</body>
+
+</html>

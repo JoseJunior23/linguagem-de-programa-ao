@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Página modelo</title>
+   <script>
+      'use strict'; // Modo "chato" do Javascript
+   
+      /*
+         Peça ao usuário para informar dois números e um dos
+         seguintes operadores matemáticos:
+         + -> adição
+         - -> subtração
+         *, ., x ou X -> multiplicação
+         / ou : -> divisão
+         Utilizando a estrutura switch..case, verifique qual
+         operação foi selecionada, efetue a operação e exiba
+         o resultado com document.write().
+      */
+
+
+      let n1 = Number(prompt('Digite o primeiro valor: '));
+      let n2 = Number(prompt('Digite o segundo valor: '));
+      let operacao = prompt('Qual a operação desejada: \n + para soma \n - para subtração \n *,.,x,X, para multiplicação \n /, :, para divisão');
+      let res, erro;
+      do{
+      if(isNaN(n1)||(isNaN(n2))) {
+         erro = true
+         alert('Você deve digitar somente numeros ');
+      }
+      }while(erro)
+      do{
+      switch(operacao){
+         case '+':
+            res = n1 + n2;
+            break;
+         case '-':
+            res = n1 - n2;
+            break;
+         case '*':
+         case '.':
+         case 'x':
+         case 'X':
+            res = n1 * n2;
+            break;
+         case '/':
+         case ':':
+            res = n1 / n2;
+            break;
+            default:
+               alert('O operador digitado INVALIDO')
+      }
+      }while(erro)
+      while(erro)
+      if(res != undefined){
+         document.write(`A operação escolhida foi ${operacao}, os numeros digitados foram ${n1}, ${n2}, com o resultado de ${res}`)
+      }
+      
+   </script>
+</head>
+<body>
+   <h1>Título da página</h1>
+   <p>Parágrafo de texto</p>  
+</body>
+</html>

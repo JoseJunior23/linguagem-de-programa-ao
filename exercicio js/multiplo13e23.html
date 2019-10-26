@@ -1,0 +1,47 @@
+ 
+<!DOCTYPE html>
+<html lang="pt-br">
+   <head>
+      <meta charset="utf-8">
+      <title>Minha primeira página HTML</title>
+    
+   </head>
+
+   <body>
+      <h1>Multiplos de 13 e 23</h1>
+      <p>Mostraremos os numeros multiplos de 13 e 23 em 1 e 1000</p>
+      <script>
+      
+         'use strict'; // Modo chato do JS
+         /*
+            Imprima na página todos os números múltiplos de 13 ou
+            de 23 entre 1 e 1000. Utilize while.
+         
+         */
+        let numeros = 1;
+        var p;
+        while(numeros <= 1000){
+            if(numeros % 13 == 0){
+               // document.write(`O numero ${numeros} é multiplo de 13</br>`);
+
+               // cria um novo elemento no documento
+               p = document.createElement('p');
+               p.innerHTML = `O numero ${numeros} é multiplo de 13`;
+
+               //encaixando o elemento na estrutura do documento
+               document.body.appendChild(p);
+            }
+            else if(numeros % 23 == 0){
+                //document.write(`O numero ${numeros} é multiplo de 23</br>`);
+                 // cria um novo elemento no documento
+               p = document.createElement('p');
+               p.innerHTML = `O numero ${numeros} é multiplo de 23`;
+
+               //encaixando o elemento na estrutura do documento
+               document.body.appendChild(p);
+            }
+         numeros++
+        }
+      </script>
+   </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Página modelo</title>
+   <script>
+      'use strict'; // Modo "chato" do Javascript
+      const segredo = Math.floor(Math.random() * 30 + 1);
+      let tentativas = 10;
+      let resposta = 0;
+      let mensagem;
+      while(tentativas > 0 && resposta != segredo){
+         mensagem = `Adivinhe o numero entre (1 e 30)`;
+         mensagem += `Você tem ${tentativas} tentativas`;
+         do{
+         resposta = parseInt(prompt(mensagem));
+         }while(isNaN(resposta)||(resposta < 1 || resposta > 30));
+
+         if(resposta < segredo){
+            alert(`Arrisque um numero maior`)
+         }
+         else if(resposta > segredo){
+            alert(`Arrisque um numero menor`)
+
+         }
+
+         tentativas--;// equivale a tentativas = tentativas -1
+      }
+
+      if(resposta == segredo){
+         alert(`Parabens voçê acertou !!! O numero secreto era ${segredo}`);
+      }
+      else{
+         alert(`Que pena! Tentativas esgotada.O numero secreto era ${segredo}`);
+      }
+   </script>
+</head>
+<body>
+   <h1>Título da página</h1>
+   <p>Parágrafo de texto</p>  
+</body>
+</html>

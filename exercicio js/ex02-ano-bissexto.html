@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Página modelo</title>
+   <script>
+      'use strict'; // Modo "chato" do Javascript
+
+      /* Peça para o usuário informar um ano e diga se esse ano
+         é ou não bissexto.
+
+         Regras:
+
+         SE ano É MÚLTIPLO DE 400
+            ENTÃO ano é bissexto
+         SENÃO, SE ano é MÚLTIPLO DE 100
+            ENTÃO ano _não_ é bissexto
+         SENÃO, SE ano É MÚLTIPLO DE 4
+            ENTÃO ano é bissexto
+         SENÃO
+            ano _não_ é bissexto
+
+         Para testar:
+         1973: N
+         2000: S
+         1800: N
+         2002: N
+         2016: S
+            
+      */      
+   let ano = parseInt(window.prompt('Digite o ano a ser verificado: '))
+   if(isNaN(ano)){
+      window.alert(`O ANO INFORMADO É INVALIDO!!!`)
+   }
+   else if (ano% 400 == 0||(ano%4 == 0 && !(ano % 100 == 0))){
+         window.alert(`O ano ${ano} é BISSEXTO`);
+   }
+  /* else if(ano % 400 == 0){
+      window.alert(`O ano de ${ano} é bissexto`)
+   }
+   else if(ano % 100 == 0){
+      window.alert(`O ano de ${ano} NÃO é bissexto`)
+   }
+   else if(ano % 4 == 0 ){
+      window.alert(`O ano de ${ano} é bissexto`)
+   }
+   else{
+      window.alert(`O ano de ${ano} NÃO é bissexto`)
+   }
+   */
+   </script>
+</head>
+<body>
+   <h1>Título da página</h1>
+   <p>Parágrafo de texto</p>  
+</body>
+</html>

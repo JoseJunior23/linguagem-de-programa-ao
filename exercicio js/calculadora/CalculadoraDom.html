@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Página modelo</title>
+   <link rel="stylesheet" type="text/css" href="stilo.css">
+</head>
+
+<body>
+   <h1>Calculadora Universal</h1>
+   <p></p>
+
+   <!--Input cria um campo de texto, type é o tipo de texto este campo irá receber-->
+   <input id='n1' type='number' step='0.1' value='0'>
+   <!--step passa os valores em decimais ,, value é para iniciar em 0-->
+   <select id='operador'>
+      <option>(Selecione a operação desejada)</option>
+      <option>Adição</option>
+      <option>Subtração</option>
+      <option>Multiplição</option>
+      <option>Divisão</option>>
+      <option>Potênciação</option>
+      <option>resto da divisão </option>
+   </select>
+   <input id='n2' type='number' step='0.1' value='0'>
+   <button id='calcular'>Calcular</button>
+   <div id="resultado"></div>
+   <!--para guardar o resultado-->
+
+   <script>
+      const elem_n1 = document.getElementById('n1');
+      const elem_n2 = document.getElementById('n2');
+      const elem_operador = document.getElementById('operador');
+      const elem_resultado = document.getElementById('resultado');
+      const elem_calcular = document.getElementById('calcular');
+
+      function Calcular() {
+
+         let n1 = Number(elem_n1.value); //converte para numero o campo buscado
+         let n2 = Number(elem_n2.value);
+         let op = elem_operador.selectedIndex; //selectedIndex é a ordem da opção selecionada, (contagem começe em 0)
+         let resultado;
+
+         switch (op) {
+            case 1:
+               resultado = n1 + n2;
+               break;
+            case 2:
+               resultado = n1 - n2;
+               break;
+            case 3:
+               resultado = n1 * n2;
+               break;
+            case 4:
+               resultado = n1 / n2;
+               break;
+            case 5:
+               resultado = n1 ** n2;
+               break;
+            case 6:
+               resultado = n1 % n2;
+               break;
+            default:
+               alert('Selecione uma operação VALIDA');
+               elem_operador.focus();
+         }
+         if (resultado != undefined) {
+            elem_resultado.innerText = resultado.toLocaleString('pt-br');
+         }
+      }
+
+      elem_calcular.addEventListener('click', Calcular);
+
+      elem_n1.focus();
+      elem_n1.select();
+   </script>
+</body>
+
+</html>
